@@ -1,0 +1,144 @@
+* ADA4637 SPICE Macro-model                   
+* Description: Amplifier
+* Generic Desc: 8/30V, JFET, OP, Low Noise, Low Ib, 1X
+* Developed by: HH / ADSJ
+* Revision History: 08/10/2012 - Updated to new header style
+* 1.0 (08/2010)
+* Copyright 2010, 2012 by Analog Devices
+*
+* Refer to http://www.analog.com/Analog_Root/static/techSupport/designTools/spiceModels/license/spice_general.html for License Statement.  Use of this model
+* indicates your acceptance of the terms and provisions in the License Statement.
+*
+* BEGIN Notes: 
+*  CAUTION!!  To aid in convergence, most Spice simulators add a
+*  conductance on every node to insure that no node is floating.
+*  This is GMIN, and the default value is usually 1E-12.  To properly 
+*  simulate the low input bias current and low current noise, the 
+*  Spice simulator options have to be set to the following:
+*  .OPTIONS GMIN=0.01p
+*  .OPTIONS ABSTOL=0.01pA
+*  .OPTIONS ITL1=500
+*  .OPTIONS ITL2=200
+*  .OPTIONS ITL4=100
+*
+* Not Modeled:
+*    
+* Parameters modeled include: 
+*  This model simulates typical values at Vs=±15V
+*  The ADA4637 is decompensated. Operate at a noise gain >5
+*
+* END Notes
+*
+* Node assignments
+*            	  non-inverting input
+*                 |   inverting input
+*                 |   |    positive supply
+*                 |   |    |    negative supply
+*                 |   |    |    |    output
+*                 |   |    |    |    |
+.SUBCKT ADA4637   1   2   99   50   30
+*
+* INPUT STAGE
+*
+Cdiff 1   2  3E-12
+Cin1  1  50  5E-12
+Cin2  2  50  5E-12
+*
+R3   5  99a    2.579E+02
+R4   6  99a    2.579E+02
+Ddp  99b 99a DX
+VCP  99 99b -0.3V
+J1   5   2    4   JX
+J2   6   7    4   JX
+*
+I1   4  50    3.877E-03
+IOS  1   2    67.25E-12
+EOS  7   1    POLY(3)  (17,24) (73,98) (42,0) 110E-6  1 1 1 1
+*
+EREF 98  0    24  0   1
+*
+* SECOND STAGE 
+*
+R5   9  98    3.974E+05
+C3   9  98    1.000E-9
+G1   98  9    5  6  1.700E-01
+V2   8  98    12.18; source
+V3   98 10    12.704;  sink
+D1   9   8    DX
+D2   10  9    DX
+*
+* 2nd 
+*
+G5   98 18    9  98  1E-03
+R13  18 19    1.0E+03
+R13a 19 98    4.0E-3	
+C13a 18 98    2E-13
+*
+* COMMON-MODE GAIN NETWORK 
+*
+R11  16 17     1.447E+01
+R12  17 98     1.768E-03
+E3   16 98     POLY(2) 1  98  2  98  0  7.192E-02 7.192E-02
+C8   16 17     1.0E-6
+*
+* PSRR NETWORK
+*
+EPSY 98 72 POLY(1) (99,50) 2.897E-04  8.692E-03
+CPS3 72 73 1.000E-09
+RPS3 72 73 8.603E+04
+RPS4 73 98 1.326E+02
+*
+* VOLTAGE NOISE GENERATOR
+*
+VN1  41  0    DC 2
+DN1  41 42    DEN
+DN2  42 43    DEN
+VN2  0  43    DC 2
+*
+*
+GSY  99 50 POLY(1) (99,50) 3.615E-03 11.7E-06
+*
+* OUTPUT STAGE
+*
+R14  24 99     500E3
+R15  24 50     500E3
+R16  29 99     100
+R17  29 50     100
+G8   29 99  POLY(1)    99 18  1E-16 1.00E-2 
+G9   50 29  POLY(1)    18 50  1E-16 1.00E-2
+*
+V4   25 29     2.02; Isc high side
+V5   29 26     1.83
+D3   18 25     DX
+D4   26 18     DX
+*
+G6   27 50 18 29  10.0E-03 
+G7   28 50 29 18  10.0E-03
+D5   99 27     DX
+D6   99 28     DX
+D7   50 27     DY
+D8   50 28     DY
+F1   29  0     V4  1
+F2   0  29     V5  1
+*
+L1   29 30a     1E-15
+R24  30a 30  1m;  30 is output pin
+*
+* MODELS USED
+*
+.MODEL JX NJF(BETA=1.699E-02  VTO=-1.500  IS=7E-13 RD=1m
++ RS=1m CGD=1.5E-14 CGS=1.5E-14  LAMBDA=0.01 )
+*.MODEL JX PJF(BETA=1.4E-3  VTO=-1.000  IS=20E-12 RD=0
+*+ RS=0 CGD=3E-12 CGS=3E-12)
+.MODEL DX   D(IS=1E-15 RS=0 CJO=1E-12)
+.MODEL DY   D(IS=1E-15 BV=50 RS=10 CJO=1E-12)
+.MODEL DEN  D(IS=1E-12 RS=2.4E3, KF=3.7E-15 AF=1)
+.MODEL DIN  D(IS=1E-12 RS=12090 KF=0 AF=1)
+*
+.ENDS ADA4637
+*
+
+
+
+
+

@@ -1,0 +1,5 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "F2V")(type "KiCad")(uri "${KIPRJMOD}/F2V.pretty")(options "")(descr ""))
+  (lib (name "Frequency Divider")(type "KiCad")(uri "${KIPRJMOD}/F2V.pretty/Frequency Divider.pretty")(options "")(descr ""))
+)
