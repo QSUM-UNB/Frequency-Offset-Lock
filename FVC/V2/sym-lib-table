@@ -1,5 +1,0 @@
-(sym_lib_table
-  (version 7)
-  (lib (name "Neg Voltage Reg")(type "KiCad")(uri "${KIPRJMOD}/F2V.pretty/Neg Voltage Reg.kicad_sym")(options "")(descr ""))
-  (lib (name "OpAmp")(type "KiCad")(uri "${KIPRJMOD}/F2V.pretty/OpAmp.kicad_sym")(options "")(descr ""))
-)
