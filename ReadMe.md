@@ -1,6 +1,6 @@
 ## Frequency-offset locking electronics
 
-![Circuit assembly](/Assembly/LockCircuit.jpg "Circuit assembly for frequency-offest locking electronics")
+![Circuit assembly](</Assembly/Lock Circuit.jpg> "Circuit assembly for frequency-offest locking electronics")
 
 This repository contains the PCB designs for a standalone optical frequency-offset locking system. Each circuit component (or tile) is organized into a `hardware` folder, which contains the schematic, board layout, and BOM, and a `production` folder containing the gerber files required for manufacturing. All PCB designs were developed in KiCAD.
 
@@ -20,7 +20,7 @@ The support board (3U, 220 mm depth) can accommodate several standard tile sizes
 
 ### Divider Tile
 
-![Divider tile](/Divider/Microsemi-MX1DS10P/hardware/Microsemi-MX1DS10P_connectors.jpg "Divider tile")
+![Divider tile](</Divider/Microsemi-MX1DS10P/hardware/Microsemi-MX1DS10P_connectors.jpg> "Divider tile")
 
 The frequency division stage uses a broadband prescaler (Microsemi MX1DS10P) with a programmable division ratio. This component accepts input frequencies from 50 MHz to 15 GHz and provides a tunable division ratio, $D = 2^{20}/S$, where $S$ is a 20-bit seed value selected via binary switches. For an input sinusoidal signal at frequency $f_{\rm in}$, the divider produces a $\pm 1$ V square wave at an output frequency $f_{\rm in}/D$.
 
@@ -32,7 +32,7 @@ The HF amplifier stage is configured as a buffer to isolate the divided signal f
 
 ### F2V Tile
 
-![FVC tile](/FVC/V3.1/hardware/FVC.jpg "FVC tile")
+![FVC tile](</FVC/V3.1/hardware/FVC.jpg> "FVC tile")
 
 The frequency-to-voltage converter (FVC) tile is designed for the AD650JPZ. It does not require a clock signal, it supports input frequencies up to 1 MHz (full scale range), and features a low nonlinearity of 0.1%.
 
@@ -50,7 +50,7 @@ The error signal tile sums the filtered FVC output with a −5 V reference (to c
 
 ### Conditioning Tile
 
-![Conditioning tile](/Conditioning/hardware/Conditioning.jpg "Conditioning tile")
+![Conditioning tile](</Conditioning/hardware/Conditioning.jpg> "Conditioning tile")
 
 The conditioning tile modifies the amplitude and sign of the error signal. It acts as a global gain stage prior to the PI controller.
 
