@@ -2,9 +2,10 @@
 
 ![Circuit assembly](</Assembly/Lock Circuit.jpg> "Circuit assembly for frequency-offest locking electronics")
 
-- This repository contains the PCB designs for a standalone optical frequency-offset locking system. The files for each circuit component (or tile) are organized into a directory structure described below. All PCB designs were developed in KiCAD. Details about the locking system and its performance can be found in our publication:  
-<br>
-***K. Shalaby et al, Standalone optical frequency-offset locking electronics for atomic physics, Rev. Sci. Instrum. (2026).***
+- This repository contains the PCB designs for a standalone optical frequency-offset locking system. All PCB designs were developed in KiCAD.
+- Files for each circuit component (or tile) are organized into the directory structure described below.
+- Details about the locking system and its performance can be found in our publication: 
+- ***K. Shalaby et al, Standalone optical frequency-offset locking electronics for atomic physics, Rev. Sci. Instrum. (2026).***
 
 ### Directory structure
 
