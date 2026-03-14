@@ -15,6 +15,7 @@
       "vias": 1.0,
       "zones": 0.6
     },
+    "ratsnest_display_mode": 0,
     "selection_filter": {
       "dimensions": true,
       "footprints": true,
@@ -45,8 +46,6 @@
       "pads",
       "zones",
       "drc_warnings",
-      "locked_item_shadows",
-      "conflict_shadows",
       "shapes"
     ],
     "visible_layers": "00000000_00000000_0fffffff_ffffffff",
@@ -58,7 +57,7 @@
     "ssh_key": ""
   },
   "meta": {
-    "filename": "Conditioning.kicad_prl",
+    "filename": "Template-3U220mm.kicad_prl",
     "version": 5
   },
   "net_inspector_panel": {

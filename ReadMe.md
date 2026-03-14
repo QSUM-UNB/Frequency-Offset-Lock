@@ -3,9 +3,11 @@
 ![Circuit assembly](</Assembly/Lock Circuit.jpg> "Circuit assembly for frequency-offest locking electronics")
 
 - This repository contains the PCB designs for a standalone optical frequency-offset locking system. All PCB designs were developed in KiCAD.
+
+- PCB Designs © 2026 by K. Shalaby, P. Trottier, T. Reuschel, and B. Barrett is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
 - Files for each circuit component (or tile) are organized into the directory structure described below.
-- Details about the locking system and its performance can be found in our publication: 
-- ***K. Shalaby et al, Standalone optical frequency-offset locking electronics for atomic physics, Rev. Sci. Instrum. (2026).***
+- Details about the locking system and its performance can be found in our publication: ***K. Shalaby et al, Standalone optical frequency-offset locking electronics for atomic physics, Rev. Sci. Instrum. (2026).***
+
 
 ### Directory structure
 
@@ -17,9 +19,8 @@ simulation | Simulation files and generated results
 
 The *hardware/* directory of a KiCad project typically contains the following files:
 - Project Manager File (\*.kicad_pro): project file, defines central parameters and component library lists
-- Schematic Files (eeschema, \*.kicad_sch): schematic files of the project\*_cache.lib, i.e. an essential local copy of all the symbols used in the project
-- PCB Layout (pcbnew, \*.kicad_pcb): board layout
-- Special File (\*.cmp): component symbol association in schematic file with the relevant footprints in the pcb_layout; tracks changes from eeschema (the schematics tool) to pcbnew (PCB Layout tool) and vice versa.
+- Schematic Files (\*.kicad_sch): schematic files of the project\*_cache.lib, i.e. an essential local copy of all the symbols used in the project
+- PCB Layout (\*.kicad_pcb): board layout
 
 ### Assembly
 
@@ -27,7 +28,7 @@ The *hardware/* directory of a KiCad project typically contains the following fi
 
 ### Support Board
 
-![Support board](</Support Board/hardware/Template-3U220mm-4H.jpg> "Support board")
+![Support board](</Support Board/hardware/Support Board_3U220mm.jpg> "Support board")
 
 - The support board (3U, 220 mm depth) can accommodate several standard tile sizes of $30 \times 30$ mm or $60 \times 30$ mm.
 - It features a backplane connector and adjustable voltage regulators with capacitive decoupling filters to reduce regulator voltage noise.
@@ -47,7 +48,7 @@ The *hardware/* directory of a KiCad project typically contains the following fi
 - The HF amplifier stage is configured as a buffer to isolate the divided signal from downstream circuitry. We use it with the ADA4637 (80 MHz gain-bandwidth product).
 - The tile can be configured as an inverting or non-inverting opamp with the desired gain, and is capable of square-wave signals up to ~1 MHz.
 
-### F2V Tile
+### FVC Tile
 
 ![FVC tile](</FVC/V3.1/hardware/FVC.jpg> "FVC tile")
 
